@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "6f5ad8d8bf6bbe726325cea229b8bf9d"
+name = "custom-app"
+handle = "custom-app-650"
+application_url = "https://mumbai-controllers-worried-other.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-c19cdac1.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://mumbai-controllers-worried-other.trycloudflare.com/auth/callback",
+  "https://mumbai-controllers-worried-other.trycloudflare.com/auth/shopify/callback",
+  "https://mumbai-controllers-worried-other.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
